@@ -1,0 +1,18 @@
+{
+  "name": "@socketsupply/json-store",
+  "description": "JSON-based storage (filesystem) with localStorage-compatible API",
+  "type": "module",
+  "version": "0.0.1",
+  "main": "./src/json-store.mjs",
+  "devDependencies": {
+    "@socketsupply/socket": "latest"
+  },
+  "repository": "socketsupply/module-json-store",
+  "bugs": {
+    "url": "https://github.com/socketsupply/json-store/issues",
+    "email": "getify@gmail.com"
+  },
+  "homepage": "https://github.com/socketsupply/json-store",
+  "author": "Socket Supply Co <hello@socketsupply.co>",
+  "license": "MIT"
+}
