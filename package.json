@@ -1,8 +1,8 @@
 {
   "name": "@socketsupply/json-store",
-  "description": "JSON-based storage (filesystem) with localStorage-compatible API",
+  "description": "Socket Supply Runtime plugin: JSON-based storage (file-system) with localStorage-compatible API",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "main": "./src/json-store.mjs",
   "devDependencies": {
     "@socketsupply/socket": "latest"

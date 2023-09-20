@@ -1,4 +1,4 @@
-import fs from 'socket:fs'
+import fs from 'socket:fs/promises'
 
 let dataCache
 const storeFilePath = './.store.json'
@@ -11,39 +11,39 @@ export {
   getItem, setItem, removeItem, clear
 }
 
-readStore()
+await readStore()
 
-function getItem(name) {
+async function getItem(name) {
   return dataCache[name]
 }
 
-function setItem(name, value) {
+async function setItem(name, value) {
   dataCache[name] = value
-  return writeStore() && value
+  return (await writeStore()) && value
 }
 
-function removeItem(name) {
+async function removeItem(name) {
   delete dataCache[name]
   return writeStore()
 }
 
-function clear() {
+async function clear() {
   dataCache = {}
   return writeStore()
 }
 
-function readStore() {
+async function readStore() {
   try {
-    const contents = fs.readFileSync(storeFilePath,'utf-8')
+    const contents = await fs.readFile(storeFilePath, 'utf-8')
     dataCache = JSON.parse(contents)
   } catch {
     clear()
   }
 }
 
-function writeStore() {
+async function writeStore() {
   try {
-    fs.writeFileSync(
+    await fs.writeFile(
       storeFilePath,
       JSON.stringify(dataCache),
       'utf-8'
